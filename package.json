@@ -1,0 +1,90 @@
+{
+    "name": "@diia-inhouse/cms",
+    "version": "1.4.0",
+    "description": "Cms utils",
+    "main": "dist/index.js",
+    "types": "dist/types/index.d.ts",
+    "repository": "https://github.com/diia-open-source/be-pkg-cms.git",
+    "author": "Diia",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "files": [
+        "dist"
+    ],
+    "engines": {
+        "node": ">=18"
+    },
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "tsc",
+        "semantic-release": "semantic-release",
+        "start": "npm run build && node dist/index.js",
+        "lint": "eslint --ext .ts . && prettier --check .",
+        "lint-fix": "eslint '*/**/*.{js,ts}' --fix && prettier --write .",
+        "lint:lockfile": "lockfile-lint --path package-lock.json --allowed-hosts registry.npmjs.org --validate-https",
+        "prepare": "npm run build",
+        "find-circulars": "madge --circular --extensions ts ./",
+        "test": "jest",
+        "test:unit": "npm run test --selectProjects unit --",
+        "test:coverage": "npm run test --selectProjects unit --coverage --"
+    },
+    "dependencies": {
+        "qs": "6.11.1"
+    },
+    "peerDependencies": {
+        "@diia-inhouse/errors": ">=1.0.0",
+        "@diia-inhouse/http": ">=1.0.0",
+        "@diia-inhouse/types": ">=1.0.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "17.4.4",
+        "@diia-inhouse/configs": "1.26.3",
+        "@diia-inhouse/errors": "1.6.1",
+        "@diia-inhouse/eslint-config": "3.4.0",
+        "@diia-inhouse/http": "1.5.1",
+        "@diia-inhouse/types": "4.25.0",
+        "@diia-inhouse/test": "5.1.0",
+        "@diia-inhouse/diia-logger": "2.10.0",
+        "@types/node": "20.3.1",
+        "@types/qs": "6.9.7",
+        "lockfile-lint": "4.10.1",
+        "madge": "6.0.0",
+        "semantic-release": "21.1.2"
+    },
+    "release": {
+        "extends": "@diia-inhouse/configs/dist/semantic-release/package",
+        "branches": [
+            "main"
+        ]
+    },
+    "commitlint": {
+        "extends": "@diia-inhouse/configs/dist/commitlint"
+    },
+    "eslintConfig": {
+        "extends": "@diia-inhouse/eslint-config",
+        "rules": {
+            "@typescript-eslint/no-unnecessary-condition": [
+                "off"
+            ]
+        },
+        "overrides": [
+            {
+                "files": [
+                    "*.ts"
+                ],
+                "parserOptions": {
+                    "project": [
+                        "./tsconfig.json",
+                        "./tests/tsconfig.json"
+                    ]
+                }
+            }
+        ]
+    },
+    "prettier": "@diia-inhouse/eslint-config/prettier",
+    "madge": {
+        "tsConfig": "./tsconfig.json"
+    },
+    "jest": {
+        "preset": "@diia-inhouse/configs/dist/jest"
+    }
+}
