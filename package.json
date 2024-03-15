@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Cms utils",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",

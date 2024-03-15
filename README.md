@@ -26,7 +26,7 @@ This repository contains the package which provides cms capabilities.
 Example:
 
 ```
-git clone https://github.com/diia-open-source/pkg-cms.git
+git clone https://github.com/diia-open-source/be-pkg-cms.git pkg-cms
 ```
 
 ---
