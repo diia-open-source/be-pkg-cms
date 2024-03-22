@@ -37,18 +37,20 @@
     },
     "devDependencies": {
         "@commitlint/cli": "17.4.4",
-        "@diia-inhouse/configs": "1.26.3",
-        "@diia-inhouse/errors": "1.6.1",
-        "@diia-inhouse/eslint-config": "3.4.0",
-        "@diia-inhouse/http": "1.5.1",
-        "@diia-inhouse/types": "4.25.0",
-        "@diia-inhouse/test": "5.1.0",
-        "@diia-inhouse/diia-logger": "2.10.0",
+        "@diia-inhouse/configs": "^1.26.3",
+        "@diia-inhouse/errors": "^1.6.1",
+        "@diia-inhouse/eslint-config": "^3.4.0",
+        "@diia-inhouse/http": "^1.5.1",
+        "@diia-inhouse/types": "^5.0.0",
+        "@diia-inhouse/test": "^5.1.0",
+        "@diia-inhouse/diia-logger": "^2.10.0",
         "@types/node": "20.3.1",
         "@types/qs": "6.9.7",
         "lockfile-lint": "4.10.1",
         "madge": "6.0.0",
-        "semantic-release": "21.1.2"
+        "semantic-release": "21.1.2",
+        "type-fest": "^4.8.1",
+        "typescript": "5.3.3"
     },
     "release": {
         "extends": "@diia-inhouse/configs/dist/semantic-release/package",
