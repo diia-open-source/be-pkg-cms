@@ -8,7 +8,11 @@ import { StrapiConfig } from '../interfaces'
 import { CmsBaseAttributes, CmsCollectionType, CmsEntries, GetListOptions, ListResponse } from '../interfaces/cms'
 
 export class CmsService {
-    constructor(private readonly cmsConfig: StrapiConfig, private readonly httpService: HttpService, private readonly logger: Logger) {}
+    constructor(
+        private readonly cmsConfig: StrapiConfig,
+        private readonly httpService: HttpService,
+        private readonly logger: Logger,
+    ) {}
 
     async getList<RawT extends CmsBaseAttributes, T>(
         collectionType: CmsCollectionType,

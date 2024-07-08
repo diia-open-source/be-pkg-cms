@@ -42,10 +42,10 @@ export interface CmsQuerySelector<T> {
 export interface CmsRootFilterQuery<T> {
     $or?: CmsFilterQuery<T>[]
     $and?: CmsFilterQuery<T>[]
-    [key: string]: any
+    [key: string]: unknown
 }
 
-export type ApplyBasicQueryCasting<T> = T | T[] | any
+export type ApplyBasicQueryCasting<T> = T | T[] | unknown
 
 export type Condition<T> = ApplyBasicQueryCasting<T> | CmsQuerySelector<ApplyBasicQueryCasting<T>>
 
