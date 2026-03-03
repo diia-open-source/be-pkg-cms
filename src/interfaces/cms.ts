@@ -2,6 +2,7 @@ export enum CmsCollectionType {
     ErrorTemplate = 'error-template',
     Faq = 'faq',
     FaqCategory = 'faq-categories',
+    MilitaryDonationReports = 'military-donation-reports',
 }
 
 export interface CmsBaseAttributes {
@@ -40,9 +41,9 @@ export interface CmsQuerySelector<T> {
 }
 
 export interface CmsRootFilterQuery<T> {
+    [key: string]: unknown
     $or?: CmsFilterQuery<T>[]
     $and?: CmsFilterQuery<T>[]
-    [key: string]: unknown
 }
 
 export type ApplyBasicQueryCasting<T> = T | T[] | unknown
@@ -73,6 +74,11 @@ export interface CmsEntry<T extends CmsBaseAttributes> {
 
 export interface ListResponse<T> {
     data: T[]
+    meta: CmsEntriesMeta
+}
+
+export interface Response<T> {
+    data: T
     meta: CmsEntriesMeta
 }
 

@@ -1,15 +1,20 @@
-import { HttpServiceResponseResult } from '@diia-inhouse/http'
+import { mock } from 'vitest-mock-extended'
 
-import { CmsService } from '../../../src'
-import { CmsBaseAttributes, CmsCollectionType, CmsEntry, GetListOptions } from '../../../src/interfaces'
-import { httpService, logger, strapiConfig } from '../mocks'
+import DiiaLogger from '@diia-inhouse/diia-logger'
+import { HttpClientService } from '@diia-inhouse/http'
+
+import { CmsBaseAttributes, CmsCollectionType, CmsEntry, CmsService, GetListOptions, MetricLabel, MetricLabels } from '../../../src'
+import { strapiConfig } from '../mocks'
 
 describe('CmsService', () => {
-    let service: CmsService
+    const logger = mock<DiiaLogger>()
+    const httpService = mock<HttpClientService<MetricLabel>>()
+    const service = new CmsService(strapiConfig, httpService, logger)
 
     beforeEach(() => {
-        service = new CmsService(strapiConfig, httpService, logger)
+        vi.clearAllMocks()
     })
+
     describe('getList', () => {
         const collectionType: CmsCollectionType = CmsCollectionType.Faq
         const options: GetListOptions<CmsEntry<CmsBaseAttributes>> = {
@@ -29,34 +34,79 @@ describe('CmsService', () => {
                 },
             },
         }
-        const httpServiceResponse: HttpServiceResponseResult = {
-            data: { ...data },
+        const httpServiceResponse = {
+            isOk: true,
+            body: { ...data },
             statusCode: 200,
-            statusMessage: 'OK',
         }
 
         it('should call the httpService get method with correct arguments', async () => {
-            jest.spyOn(httpService, 'get').mockResolvedValueOnce([null, Object.assign(httpServiceResponse)])
+            httpService.get.mockResolvedValueOnce(httpServiceResponse)
             await service.getList(collectionType, options, dataMapper)
 
             expect(httpService.get).toHaveBeenCalledTimes(1)
-            expect(httpService.get).toHaveBeenCalledWith({
-                path: `/api/${collectionType}?pagination[page]=1&pagination[pageSize]=10`,
-                host: strapiConfig.host,
-                port: strapiConfig.port,
+            expect(httpService.get).toHaveBeenCalledWith(`/api/${collectionType}?pagination[page]=1&pagination[pageSize]=10`, {
+                baseUrl: `${strapiConfig.host}:${strapiConfig.port}`,
                 headers: { Authorization: `Bearer ${strapiConfig.token}` },
-                rejectUnauthorized: false,
+                httpsAgent: expect.any(Object),
                 timeout: 30000,
+                metricLabel: MetricLabels.strapiGetList,
             })
         })
 
         it('should throw an error if httpService returns a non-OK status code', async () => {
-            jest.spyOn(httpService, 'get').mockResolvedValueOnce([
-                null,
-                Object.assign(httpServiceResponse, { statusCode: 500, statusMessage: 'Internal Server Error' }),
-            ])
+            httpService.get.mockResolvedValueOnce(
+                Object.assign(httpServiceResponse, {
+                    statusCode: 500,
+                    statusMessage: 'Internal Server Error',
+                }),
+            )
 
             await expect(service.getList(collectionType, options, dataMapper)).rejects.toThrow('StrapiService: failed to retrieve data')
+        })
+    })
+
+    describe('getLatestRecord', () => {
+        const collectionType: CmsCollectionType = CmsCollectionType.MilitaryDonationReports
+        const options: GetListOptions<CmsEntry<CmsBaseAttributes>> = {
+            pagination: { page: 1, pageSize: 10 },
+        }
+        const dataMapper = { toEntity: (raw: CmsBaseAttributes): CmsEntry<CmsBaseAttributes> => ({ id: 1, attributes: raw }) }
+        const data = {
+            data: [
+                {
+                    id: 2,
+                    title: 'NEW RECORD',
+                    updatedAt: '2024-09-18T10:16:38.754Z',
+                },
+                {
+                    id: 1,
+                    title: 'OLD RECORD',
+                    updatedAt: '2024-09-18T10:16:38.754Z',
+                },
+            ],
+        }
+        const httpServiceResponse = {
+            isOk: true,
+            body: { ...data },
+            statusCode: 200,
+        }
+
+        it('should call the httpService get method with correct arguments', async () => {
+            vi.spyOn(httpService, 'get').mockResolvedValueOnce(Object.assign(httpServiceResponse))
+            const response = await service.getLatestRecord(collectionType, options, dataMapper)
+
+            expect(httpService.get).toHaveBeenCalledWith(
+                `/api/${collectionType}?pagination[page]=1&pagination[pageSize]=1&sort=updatedAt%3Adesc`,
+                {
+                    baseUrl: `${strapiConfig.host}:${strapiConfig.port}`,
+                    headers: { Authorization: `Bearer ${strapiConfig.token}` },
+                    httpsAgent: expect.any(Object),
+                    timeout: 30000,
+                    metricLabel: MetricLabels.strapiGetLatestRecord,
+                },
+            )
+            expect(response!.data.attributes).toEqual(data.data[0])
         })
     })
 })

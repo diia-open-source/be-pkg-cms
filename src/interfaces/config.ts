@@ -1,6 +1,6 @@
 export interface StrapiConfig {
     isEnabled: boolean
     host: string
-    port: number
+    port?: number
     token: string
 }
