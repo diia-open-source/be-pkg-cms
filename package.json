@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "2.1.40",
+    "version": "2.1.41",
     "description": "Cms utils",
     "main": "dist/index.js",
     "types": "dist/types/index.d.ts",
@@ -39,7 +39,7 @@
         "@diia-inhouse/diia-logger": "3.20.12",
         "@diia-inhouse/errors": "1.18.23",
         "@diia-inhouse/eslint-config": "8.8.2",
-        "@diia-inhouse/http": "4.0.24",
+        "@diia-inhouse/http": "4.0.25",
         "@diia-inhouse/test": "7.3.23",
         "@diia-inhouse/types": "12.0.4",
         "@types/node": "25.3.3",
