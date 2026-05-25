@@ -1,5 +1,4 @@
 import 'vitest'
-
 import { CustomMatchers } from '@diia-inhouse/test/vitest'
 
 declare module 'vitest' {

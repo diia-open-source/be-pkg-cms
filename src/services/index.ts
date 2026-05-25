@@ -1,1 +1,1 @@
-export * from './cms'
+export * from './cms.js'

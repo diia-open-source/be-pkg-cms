@@ -1,21 +1,22 @@
 {
     "extends": "../tsconfig",
     "compilerOptions": {
+        "isolatedDeclarations": false,
         "types": ["vite/client", "vitest/globals"],
         "module": "ESNext",
         "moduleResolution": "Bundler",
         "isolatedModules": true,
-        "baseUrl": "../",
         "paths": {
-            "@services/*": ["src/services/*"],
-            "@interfaces/*": ["src/interfaces/*"],
-            "@models/*": ["src/models/*"],
-            "@dataMappers/*": ["src/dataMappers/*"],
-            "@actions/*": ["src/actions/*"],
-            "@src/*": ["src/*"],
-            "@tests/*": ["tests/*"]
+            "@services/*": ["../src/services/*"],
+            "@interfaces/*": ["../src/interfaces/*"],
+            "@models/*": ["../src/models/*"],
+            "@dataMappers/*": ["../src/dataMappers/*"],
+            "@actions/*": ["../src/actions/*"],
+            "@src/*": ["../src/*"],
+            "@tests/*": ["./*"]
         },
-        "noEmit": true
+        "noEmit": true,
+        "rootDir": "../"
     },
-    "include": ["./**/*", "../vitest.config.mts"]
+    "include": ["./**/*", "../vitest.config.mts", "../tsdown.config.ts"]
 }

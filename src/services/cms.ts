@@ -15,7 +15,7 @@ import {
     MetricLabels,
     Response,
     StrapiConfig,
-} from '../interfaces'
+} from '../interfaces/index.js'
 
 export class CmsService {
     constructor(

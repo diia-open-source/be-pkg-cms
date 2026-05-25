@@ -1,6 +1,6 @@
-export * from './cms'
+export * from './cms.js'
 
-export * from './config'
+export * from './config.js'
 
 export const MetricLabels = {
     strapiGetList: 'strapiGetList',

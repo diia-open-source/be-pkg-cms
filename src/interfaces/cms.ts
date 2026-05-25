@@ -46,8 +46,10 @@ export interface CmsRootFilterQuery<T> {
     $and?: CmsFilterQuery<T>[]
 }
 
+// oxlint-disable-next-line typescript/no-redundant-type-constituents -- public API: `unknown` is intentional to allow arbitrary cast values
 export type ApplyBasicQueryCasting<T> = T | T[] | unknown
 
+// oxlint-disable-next-line typescript/no-redundant-type-constituents -- ApplyBasicQueryCasting includes `unknown` by design
 export type Condition<T> = ApplyBasicQueryCasting<T> | CmsQuerySelector<ApplyBasicQueryCasting<T>>
 
 export type CmsFilterQuery<T> = {
