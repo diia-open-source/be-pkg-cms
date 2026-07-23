@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.56",
+    "version": "3.3.61",
     "type": "module",
     "description": "Cms utils",
     "main": "dist/index.js",
@@ -44,11 +44,11 @@
     "devDependencies": {
         "@commitlint/cli": "20.4.2",
         "@diia-inhouse/configs": "7.0.1",
-        "@diia-inhouse/diia-logger": "4.4.19",
+        "@diia-inhouse/diia-logger": "4.4.22",
         "@diia-inhouse/errors": "2.2.7",
-        "@diia-inhouse/http": "5.1.30",
-        "@diia-inhouse/oxc-config": "2.1.0",
-        "@diia-inhouse/test": "8.2.22",
+        "@diia-inhouse/http": "5.1.33",
+        "@diia-inhouse/oxc-config": "2.1.1",
+        "@diia-inhouse/test": "8.2.23",
         "@diia-inhouse/types": "14.2.1",
         "@types/node": "25.6.2",
         "@types/qs": "6.15.1",
