@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.94",
+    "version": "3.3.95",
     "type": "module",
     "description": "Cms utils",
     "main": "dist/index.js",
@@ -34,7 +34,7 @@
         "test:watch": "vitest watch"
     },
     "dependencies": {
-        "qs": "6.15.2"
+        "qs": "6.16.0"
     },
     "peerDependencies": {
         "@diia-inhouse/errors": ">=2.0.0",
