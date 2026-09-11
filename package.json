@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.107",
+    "version": "3.3.108",
     "type": "module",
     "description": "Cms utils",
     "main": "dist/index.js",
@@ -52,8 +52,8 @@
         "@diia-inhouse/types": "14.2.9",
         "@types/node": "25.6.2",
         "@types/qs": "6.15.1",
-        "@vitest/coverage-v8": "4.1.5",
-        "@vitest/ui": "4.1.5",
+        "@vitest/coverage-v8": "4.1.11",
+        "@vitest/ui": "4.1.11",
         "lockfile-lint": "5.0.0",
         "madge": "8.0.0",
         "n": "10.2.0",
@@ -64,7 +64,7 @@
         "semantic-release": "25.0.3",
         "tsdown": "0.22.0",
         "vite-tsconfig-paths": "6.1.1",
-        "vitest": "4.1.5",
+        "vitest": "4.1.11",
         "vitest-mock-extended": "4.0.0"
     },
     "release": {
