@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.145",
+    "version": "3.3.146",
     "type": "module",
     "description": "Cms utils",
     "main": "dist/index.js",
@@ -46,7 +46,7 @@
         "@diia-inhouse/configs": "7.2.2",
         "@diia-inhouse/diia-logger": "4.7.10",
         "@diia-inhouse/errors": "2.3.18",
-        "@diia-inhouse/http": "5.1.84",
+        "@diia-inhouse/http": "5.1.85",
         "@diia-inhouse/oxc-config": "3.2.0",
         "@diia-inhouse/test": "8.3.36",
         "@diia-inhouse/types": "14.5.2",
