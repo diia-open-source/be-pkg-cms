@@ -1,25 +1,22 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.146",
-    "type": "module",
+    "version": "3.3.147",
     "description": "Cms utils",
+    "license": "SEE LICENSE IN LICENSE.md",
+    "author": "diia-team",
+    "repository": "https://github.com/diia-open-source/be-pkg-cms",
+    "files": [
+        "dist"
+    ],
+    "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "repository": "https://github.com/diia-open-source/be-pkg-cms",
-    "author": "Diia",
-    "license": "SEE LICENSE IN LICENSE.md",
     "exports": {
         ".": {
             "types": "./dist/index.d.ts",
             "default": "./dist/index.js"
         },
         "./package.json": "./package.json"
-    },
-    "files": [
-        "dist"
-    ],
-    "engines": {
-        "node": ">=24"
     },
     "scripts": {
         "prebuild": "rimraf dist",
@@ -36,18 +33,13 @@
     "dependencies": {
         "qs": "6.16.0"
     },
-    "peerDependencies": {
-        "@diia-inhouse/errors": ">=2.0.0",
-        "@diia-inhouse/http": ">=5.0.0",
-        "@diia-inhouse/types": ">=13.0.0"
-    },
     "devDependencies": {
         "@commitlint/cli": "20.4.2",
         "@diia-inhouse/configs": "7.2.2",
         "@diia-inhouse/diia-logger": "4.7.10",
         "@diia-inhouse/errors": "2.3.18",
         "@diia-inhouse/http": "5.1.85",
-        "@diia-inhouse/oxc-config": "3.2.0",
+        "@diia-inhouse/oxc-config": "4.0.2",
         "@diia-inhouse/test": "8.3.36",
         "@diia-inhouse/types": "14.5.2",
         "@types/node": "25.6.2",
@@ -57,9 +49,9 @@
         "lockfile-lint": "5.0.0",
         "madge": "8.0.0",
         "n": "10.2.0",
-        "oxfmt": "0.48.0",
-        "oxlint": "1.63.0",
-        "oxlint-tsgolint": "0.22.1",
+        "oxfmt": "0.72.0",
+        "oxlint": "1.87.0",
+        "oxlint-tsgolint": "7.0.2003",
         "rimraf": "6.1.3",
         "semantic-release": "25.0.3",
         "tsdown": "0.22.0",
@@ -67,14 +59,22 @@
         "vitest": "4.1.11",
         "vitest-mock-extended": "4.0.0"
     },
+    "peerDependencies": {
+        "@diia-inhouse/errors": ">=2.0.0",
+        "@diia-inhouse/http": ">=5.0.0",
+        "@diia-inhouse/types": ">=13.0.0"
+    },
+    "commitlint": {
+        "extends": "@diia-inhouse/configs/dist/commitlint"
+    },
     "release": {
         "extends": "@diia-inhouse/configs/dist/semantic-release/package",
         "branches": [
             "main"
         ]
     },
-    "commitlint": {
-        "extends": "@diia-inhouse/configs/dist/commitlint"
+    "engines": {
+        "node": ">=24"
     },
     "madge": {
         "tsConfig": "./tsconfig.json"
