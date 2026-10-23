@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.163",
+    "version": "3.3.164",
     "description": "Cms utils",
     "license": "SEE LICENSE IN LICENSE.md",
     "author": "diia-team",
@@ -36,9 +36,9 @@
     "devDependencies": {
         "@commitlint/cli": "20.4.2",
         "@diia-inhouse/configs": "7.2.2",
-        "@diia-inhouse/diia-logger": "4.7.24",
-        "@diia-inhouse/errors": "2.3.26",
-        "@diia-inhouse/http": "5.1.93",
+        "@diia-inhouse/diia-logger": "4.7.25",
+        "@diia-inhouse/errors": "2.3.27",
+        "@diia-inhouse/http": "5.1.94",
         "@diia-inhouse/oxc-config": "5.0.2",
         "@diia-inhouse/test": "8.3.43",
         "@diia-inhouse/types": "14.7.2",
