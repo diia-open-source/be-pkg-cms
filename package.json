@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.170",
+    "version": "3.3.171",
     "description": "Cms utils",
     "license": "SEE LICENSE IN LICENSE.md",
     "author": "diia-team",
@@ -26,7 +26,6 @@
         "lint-fix": "oxlint --fix && oxfmt .",
         "lint:lockfile": "lockfile-lint --path package-lock.json --allowed-hosts registry.npmjs.org --validate-https",
         "prepare": "npm run build",
-        "find-circulars": "madge --circular --extensions ts ./",
         "test": "vitest run",
         "test:watch": "vitest watch"
     },
@@ -39,7 +38,7 @@
         "@diia-inhouse/diia-logger": "4.7.29",
         "@diia-inhouse/errors": "2.3.30",
         "@diia-inhouse/http": "5.1.96",
-        "@diia-inhouse/oxc-config": "5.0.2",
+        "@diia-inhouse/oxc-config": "6.1.1",
         "@diia-inhouse/test": "8.3.44",
         "@diia-inhouse/types": "14.9.2",
         "@types/node": "25.6.2",
@@ -47,7 +46,6 @@
         "@vitest/coverage-v8": "4.1.11",
         "@vitest/ui": "4.1.11",
         "lockfile-lint": "5.0.0",
-        "madge": "8.0.0",
         "n": "10.2.0",
         "oxfmt": "0.72.0",
         "oxlint": "1.87.0",
@@ -75,8 +73,5 @@
     },
     "engines": {
         "node": ">=24"
-    },
-    "madge": {
-        "tsConfig": "./tsconfig.json"
     }
 }
