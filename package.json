@@ -1,6 +1,6 @@
 {
     "name": "@diia-inhouse/cms",
-    "version": "3.3.186",
+    "version": "3.3.187",
     "description": "Cms utils",
     "license": "SEE LICENSE IN LICENSE.md",
     "author": "diia-team",
@@ -30,7 +30,7 @@
         "test:watch": "vitest watch"
     },
     "dependencies": {
-        "qs": "6.16.0"
+        "qs": "6.16.1"
     },
     "devDependencies": {
         "@commitlint/cli": "20.4.2",
